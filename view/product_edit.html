@@ -1,0 +1,81 @@
+<ul class="breadcrumb">
+	<li>
+		<i class="icon-home"></i>
+		<a ui-sref="product">Product</a>
+		<i class="icon-angle-right"></i>
+	</li>
+	<li>
+		<a ui-sref="product_edit">Product Edit</a>\
+	</li>
+</ul>
+
+<div class="box span12">
+	<div class="box-header" data-original-title="">
+		<h2><i class="halflings-icon edit"></i><span class="break"></span>Create Product</h2>
+	</div>
+	<div class="box-content" style="display: block;">
+		<form class="form-horizontal" name="productForm">
+			<div class="span5" style="height:50px;">
+				<div class="control-group">
+					<label class="control-label" for="selectError3">Category</label>
+					<div class="controls">
+					  <select id="selectError3" ng-model="categorySelect" ng-options="cat.id as cat.name for cat in castegoryLists" ng-change="setCategory()" ng-disabled="canChangeCat"></select>
+					</div>
+				</div>
+			</div>
+			<div class="span6" style="height:50px;">
+				<div class="control-group" ng-show="showAddNewCat">
+					<label class="control-label" for="newCategory">Category Name</label>
+					<div class="controls">
+					  <input class="input-xlarge focused" id="newCategory" ng-model="newCategory" type="text" value="">
+					</div>
+			  	</div>
+			</div>
+
+			
+				<div class="control-group">
+					<label class="control-label" for="productName">Product Name</label>
+					<div class="controls">
+					  <input class="input-xlarge focused" id="productName" name="productName" ng-model="product.productName" type="text" value="" required  ng-minlength="3">
+					  <span style="color:red" ng-show="(productForm.productName.$error.required)">* Product name is required.</span>
+					  <span style="color:red" ng-show="(productForm.productName.$error.minlength)">* Product name is too shot.</span>
+					  <span style="color:green" ng-show="(!productForm.productName.$error.required)&&(!productForm.productName.$error.minlength)">OK!!</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="productPrice">Product Price</label>
+					<div class="controls">
+					  <input class="input-xlarge focused" id="productPrice" name="productPrice" ng-model="product.productPrice" type="text" value="" required>
+					  <span style="color:red" ng-show="(productForm.productPrice.$error.required)">* Product price is required.</span>
+					  <span style="color:green" ng-show="(!productForm.productPrice.$error.required)">OK!!</span>
+					</div>
+				</div>
+				<div class="control-group hidden-phone">
+				  <label class="control-label" for="productDescription">Product Description</label>
+				  <div class="controls">
+					<textarea class="cleditor" id="productDescription" ng-model="product.productDescription" rows="3"></textarea>
+				  </div>
+				</div>
+
+			  <div class="form-actions">
+				<button type="submit" class="btn btn-success" ng-click="saveProduct()" ng-disabled="isValid()">Save changes</button>
+				<button class="btn">Cancel</button>
+			  </div>
+		  </form>
+	
+	</div>
+</div>
+
+<!-- เพื่อแสดง Dialog jQuery  -->
+<div id="dlg" style="display: none;">
+	<form id="add_product" class="form-horizontal">
+		<input type="hidden" name="action" id="action" value="" />
+		<p>กรุณาใส่ชื่อ สินค้า</p>
+	  	<input class="left" id="productName" name="productName" type="text" /><br /><br />
+	  	<p>กรุณาใส่คำอธิบายสินค้า</p>
+	  	<input class="left" id="productDescription" name="productDescription" type="text" /><br/><br />
+	  	<p>กรุณาใส่ราคา สินค้า</p>
+	  	<input class="left" id="productPrice" name="productPrice" type="text" /><br/><br />
+	</form>
+	<button type="button" id="send">เพิ่มสินค้า</button>
+</div>

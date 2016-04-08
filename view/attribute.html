@@ -1,0 +1,58 @@
+<ul class="breadcrumb">
+	<!-- <li>
+		<i class="icon-home"></i>
+		<a ui-sref="home">Home</a>
+		<i class="icon-angle-right"></i>
+	</li> -->
+	<li>
+		<i class="icon-home"></i>
+		<a ui-sref="stock_adjust">Stock</a>
+		<!-- <i class="icon-angle-right"></i> -->
+	</li>
+</ul>
+
+<div class="box span12">
+	<div class="box-header" data-original-title="">
+		<h2><a ui-sref="attribute_edit({attributeId:'non'})" href="#"><i class="halflings-icon plus"></i></a><span class="break"></span>Attribute</h2>
+	</div>
+	<div class="box-content">
+		<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid">
+
+			<table class="table table-striped table-bordered bootstrap-datatable datatable dataTable" id="DataTables_Table_0">
+			  <thead>
+				<tr role="row">
+					<th class="center" role="columnheader" tabindex="0" rowspan="1" colspan="1" style="width:30px; text-align:center;">No.</th>
+					<th class="sorting" role="columnheader" tabindex="0" rowspan="1" colspan="1" >Name</th>
+					<th class="sorting" role="columnheader" tabindex="0" rowspan="1" colspan="1" >Description</th>
+					<th class="sorting" role="columnheader" tabindex="0" rowspan="1" colspan="1">Attribute</th>
+					<th class="sorting" role="columnheader" tabindex="0" rowspan="1" colspan="1" style="width: 150px;">Actions</th>
+				</tr>
+			  </thead>
+			  <!-- ขาด currentPage -->
+		  <tbody role="alert" aria-live="polite" aria-relevant="all">
+		  	<tr>
+					<td class="right" style="text-align:right;"></td>
+					<td class="center">...</td>
+					<td class="center">...</td>
+					<td class="left">...</td>
+					<td class="center ">
+						<a class="btn btn-info" href="#">
+							<i class="halflings-icon white edit"></i>
+						</a>
+						<a class="btn btn-danger" href="#">
+							<i class="halflings-icon white trash"></i>
+						</a>
+					</td>
+			</tr>
+		  </tbody>
+			</table>
+			<div class="row-fluid">
+				<div class="span12 left">
+					<div class="dataTables_paginate paging_bootstrap pagination">
+						หน้า
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

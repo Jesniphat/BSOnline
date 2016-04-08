@@ -1,0 +1,97 @@
+<ul class="breadcrumb">
+	<!-- <li>
+		<i class="icon-home"></i>
+		<a ui-sref="home">Home</a>
+		<i class="icon-angle-right"></i>
+	</li> -->
+	<li>
+		<i class="icon-home"></i>
+		<a ui-sref="attribute">Attribute</a>
+		<!-- <i class="icon-angle-right"></i> -->
+	</li>
+	<li>
+		<i class="icon-home"></i>
+		<a ui-sref="attribute_edit">Attribute Edit</a>
+		<!-- <i class="icon-angle-right"></i> -->
+	</li>
+</ul>
+
+<div class="box span12">
+	<div class="box-header" data-original-title="">
+		<h2><i class="halflings-icon edit"></i><span class="break"></span>Create Attribute</h2>
+	</div>
+	<div class="box-content" style="display: block; padding-left: 0px; padding-right: 0px;padding-bottom: 0px;">
+		<form class="form-horizontal" name="attributeForm" style="margin-bottom: 0px;">
+			<div class="control-group">
+				<label class="control-label" for="productName">Attribute Name</label>
+				<div class="controls">
+				  <input class="input-xlarge focused" id="attributeName" name="attributeName" ng-model="attribute.attributeName" type="text" value="" required  ng-minlength="3">
+				  <span style="color:red" ng-show="(attributeForm.attributeName.$error.required)">* Attribute name is required.</span>
+				  <span style="color:red" ng-show="(attributeForm.attributeName.$error.minlength)">* Attribute name is too shot.</span>
+				  <span style="color:green" ng-show="(!attributeForm.attributeName.$error.required)&&(!attributeForm.attributeName.$error.minlength)">OK!!</span>
+				</div>
+			</div>
+
+			<div class="control-group hidden-phone">
+			  <label class="control-label" for="attributeDescription">Attribute Description</label>
+			  <div class="controls">
+				<textarea class="cleditor" id="attributeDescription" ng-model="attribute.attributeDescription" rows="3"></textarea>
+			  </div>
+			</div>
+
+			<!-- <hr style="background: #eee;"> -->
+
+			<div class="control-group" style="border-bottom: 2px solid #eee;margin-bottom: 0px;">
+				<div class="box-header" data-original-title="">
+					<h2>Add Attribute Detail</h2>
+				</div>
+				<br/>
+				<label class="control-label" for="attributeDetail">Attribute Detail</label>
+				<div class="controls">
+				  <input class="input-xlarge focused" id="attributeDetail" name="attributeDetail" ng-model="attribute.attributeDetail" type="text" value="">
+				</div>
+				<br/>
+				<label class="control-label" for="attributeDetailPrice">Attribute Detail Price</label>
+				<div class="controls">
+				  <input class="input-xlarge focused" id="attributeDetailPrice" name="attributeDetailPrice" ng-model="attribute.attributeDetailPrice" type="text" value="">
+				</div>
+				<div class="controls" style="padding-top:8px;"><button ng-click="addList()">ADD</button></div>
+				<br/>
+
+					<div class="box span6">
+						<div class="box-header">
+							<h2><i class="halflings-icon align-justify"></i><span class="break"></span>Simple Table</h2>
+						</div>
+						<div class="box-content" style="padding-bottom: 0px;">
+							<table class="table">
+								  <thead>
+									  <tr>
+										  <th>Attribute Detail</th>
+										  <th>Price</th>
+										  <th>Action</th>                                          
+									  </tr>
+								  </thead>   
+								  <tbody>
+									<tr ng-repeat="attri in attribute.attributeList">
+										<td style="padding-top: 2px;padding-right: 2px;padding-bottom: 0px;padding-left: 9px;">{{attri.name}}</td>
+										<td style="padding-top: 2px;padding-right: 2px;padding-bottom: 0px;padding-left: 9px;">{{attri.price}}</td>
+										<td class="center" style="padding-top: 2px;padding-right: 0px;padding-bottom: 2px;padding-left: 9px;">
+											<span class="btn btn-danger" ng-click="cutDetail($index)">
+												<i class="halflings-icon white trash"></i> 
+											</span>
+										</td>                                       
+									</tr>                                   
+								  </tbody>
+							 </table>      
+						</div>
+					</div>
+			</div>
+
+		  <div style="padding-left: 180px; background: #eee;padding-top: 20px;padding-bottom: 20px;">
+			<button type="submit" class="btn btn-primary" ng-click="saveAttribute()" ng-disabled="isValid()">Save changes</button>
+			<button class="btn">Cancel</button>
+		  </div>
+		</form>
+	
+	</div>
+</div>

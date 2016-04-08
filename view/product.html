@@ -1,0 +1,80 @@
+
+<ul class="breadcrumb">
+	<!-- <li>
+		<i class="icon-home"></i>
+		<a ui-sref="home">Home</a>
+		<i class="icon-angle-right"></i>
+	</li> -->
+	<li>
+		<i class="icon-home"></i>
+		<a ui-sref="product">Product</a>
+		<!-- <i class="icon-angle-right"></i> -->
+	</li>
+</ul>
+<div class="box span12">
+	<div class="box-header" data-original-title="">
+		<h2><a ui-sref="product_edit({productId:'non'})" href="#"><i class="halflings-icon plus"></i></a><span class="break"></span>Product</h2>
+	</div>
+	<div class="box-content">
+		<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid">
+			<div class="row-fluid">
+				<div class="span4">
+					<div id="DataTables_Table_0_length" class="dataTables_length">
+					<label>
+					Category <br/>
+						<select size="1" ng-model="categoryDropDown" ng-options="cat.id as cat.name for cat in castegoryLists" ng-change="changeCat()" name="DataTables_Table_0_length" aria-controls="DataTables_Table_0">
+						</select>
+					</label>
+					</div>
+				</div>
+				<div class="span4">
+					<div class="dataTables_filter" id="DataTables_Table_0_filter">
+						<label>Search <br/><input type="text" ng-model="keyword" ng-keyup="doChangeKeyword()"></label>
+					</div>
+				</div>
+			</div>
+			<table class="table table-striped table-bordered bootstrap-datatable datatable dataTable" id="DataTables_Table_0">
+			  <thead>
+				<tr role="row">
+					<th class="center" role="columnheader" tabindex="0" rowspan="1" colspan="1" style="width:30px; text-align:center;">No.</th>
+					<th class="sorting" role="columnheader" tabindex="0" rowspan="1" colspan="1" style="width: 134px;">Product Code</th>
+					<th class="sorting" role="columnheader" tabindex="0" rowspan="1" colspan="1" style="width: 134px;">Product Name</th>
+					<th class="sorting" role="columnheader" tabindex="0" rowspan="1" colspan="1">Description</th>
+					<th class="sorting" role="columnheader" tabindex="0" rowspan="1" colspan="1" style="width: 85px;">Product Qty</th>
+					<th class="sorting" role="columnheader" tabindex="0" rowspan="1" colspan="1" style="width: 150px;">Actions</th>
+				</tr>
+			  </thead>
+			  <!-- ขาด currentPage -->
+		  <tbody role="alert" aria-live="polite" aria-relevant="all">
+		  	<tr ng-repeat="products in filtered = (productLists | filter:keyword) | startFrom:(currentPage-1)*pageSize | limitTo:pageSize">
+					<td class="right" style="text-align:right;">{{(currentPage-1)*pageSize + 1 + $index}}</td>
+					<td class="center">{{products.code}}</td>
+					<td class="center">{{products.name}}</td>
+					<td class="center">{{products.description}}</td>
+					<td class="center" ng-click="setQty(products.code)">{{products.qty}}</td>
+					<td class="center ">
+						<a class="btn btn-success" href="#">
+							<i class="halflings-icon white zoom-in"></i>
+						</a>
+						<a class="btn btn-info" href="#">
+							<i class="halflings-icon white edit"></i>
+						</a>
+						<a class="btn btn-danger" href="#">
+							<i class="halflings-icon white trash"></i>
+						</a>
+					</td>
+			</tr>
+		  </tbody>
+			</table>
+			<div class="row-fluid">
+				<div class="span12 left">
+					<div class="dataTables_paginate paging_bootstrap pagination">
+						หน้า
+						<select size="1" style="width:50px" ng-model="currentPage" ng-options="pageNo for pageNo in pageNumber" name="DataTables_Table_0_length" aria-controls="DataTables_Table_0">
+						</select> / {{numPages}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
