@@ -1,4 +1,4 @@
-var my_app = angular.module('myApp', ['ui.router','ngSanitize','db','sidebar','productSite','ngDialog','attributeAdjust']);
+var my_app = angular.module('myApp', ['ui.router','ngRoute','ngSanitize','db','sidebar','productSite','ngDialog','attributeAdjust']);
 
 my_app.filter('startFrom', function() {
   return function(input, start) {
@@ -37,6 +37,18 @@ my_app.config(function($stateProvider, $urlRouterProvider){
         controller: "attributeEditCtrl",
       });
 });
+
+// my_app.config(function($routeProvider){
+//   $routeProvider.when("/home",{
+//     templateUrl: "view/home.html"
+//   }).when("/product",{
+//     templateUrl: "view/product.html",
+//     controller: "productCtrl"
+//   }).when("/attribute",{
+//     templateUrl: "view/attribute.html",
+//     controller: "attributeCtrl"
+//   })
+// });
 
 
 // my_app.controller('SetProductQty', ['$scope', 'dbSvc', function($scope, dbSvc) {
