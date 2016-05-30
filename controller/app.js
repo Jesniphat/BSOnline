@@ -10,7 +10,7 @@ my_app.filter('startFrom', function() {
 
 my_app.config(function($stateProvider, $urlRouterProvider){
   // For any unmatched url, send to /route1
-  $urlRouterProvider.otherwise("/home")
+  $urlRouterProvider.otherwise("/home") // ค่าเริ่มต้น
   $stateProvider
     .state("home", {
         url: "^/home",
@@ -39,7 +39,9 @@ my_app.config(function($stateProvider, $urlRouterProvider){
 });
 
 // my_app.config(function($routeProvider){
-//   $routeProvider.when("/home",{
+//   $routeProvider.when("/",{
+//     templateUrl: "view/home.html"
+//   }).when("/home",{
 //     templateUrl: "view/home.html"
 //   }).when("/product",{
 //     templateUrl: "view/product.html",
